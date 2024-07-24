@@ -1,3 +1,5 @@
+version: '3.8'  # Specify the version of Docker Compose
+
 services:
   app:
     build:
@@ -12,7 +14,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017/yolo
     volumes:
       - .:/app
-      - /app/node_modules
+      - /app/node_modules  # This can be omitted if you don't want to overwrite node_modules
 
   mongo:
     image: mongo:4.4
