@@ -1,4 +1,4 @@
-# Use an official Node runtime as a parent image
+Use an official Node runtime as a parent image
 FROM node:14 AS build
 
 # Set the working directory in the container
