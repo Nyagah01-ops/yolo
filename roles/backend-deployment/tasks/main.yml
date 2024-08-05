@@ -1,16 +1,11 @@
----
-- name: Pull image from repository
-  docker_image:
-    name: brianbwire/brian-yolo-backend:v1.0.0
-    source: pull
-
-- name: Create Node.js Backend Container
+# roles/backend/tasks/main.yml
+- name: Build and run the backend container
   docker_container:
-    name: brian-yolo-backend
-    image: brianbwire/brian-yolo-backend:v1.0.0
-    networks:
-      - name: app-net
+    name: "{{brian-yolo-backend  }}_backend"
+    image: "{{ brianbwire/brian-yolo-backend:v1.0.0 }}"
+    state: started
     ports:
-      - "5000:5000"
-    command: "npm start"
-  become: yes
+      - "{{ backend_port }}:8000"  # Map the backend port
+    restart_policy: always
+    volumes:
+      - ./backend:/app  # Mount local directory to the container

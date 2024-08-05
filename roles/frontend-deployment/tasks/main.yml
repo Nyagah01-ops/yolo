@@ -1,0 +1,11 @@
+# roles/frontend/tasks/main.yml
+- name: Build and run the frontend container
+  docker_container:
+    name: "{{ yolo_app}}_frontend"
+    image: "{{ brian-yolo-backend}}"
+    state: started
+    ports:
+      - "{{ frontend_port }}:80"  # Map the frontend port
+    restart_policy: always
+    volumes:
+      - ./frontend:/app  # Mount local directory to the container
