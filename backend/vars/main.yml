@@ -1,2 +1,2 @@
-docker_image: "myapp_image"
-docker_compose_file: "/path/to/docker-compose.yml"
+docker_image: "brian-yolo-backend_app."
+docker_compose_file: "Nyagah01-ops/yolo/docker-compose.yml"
