@@ -1,0 +1,36 @@
+# site.yml
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - docker
+
+  tasks:
+    - name: Install and configure Docker
+      block:
+        - name: Install Docker
+          apt:
+            name: docker.io
+            state: present
+            update_cache: yes
+
+        - name: Start Docker service
+          service:
+            name: docker
+            state: started
+      tags: docker
+
+    - name: Setup Frontend
+      block:
+        - name: Pull frontend Docker image
+          docker_image:
+            name: "{{ docker_image }}"
+            source: pull
+
+        - name: Run frontend container
+          docker_container:
+            name: "{{ app_name }}_frontend"
+            image: "{{ docker_image }}"
+            state: started
