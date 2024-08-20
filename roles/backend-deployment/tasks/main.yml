@@ -1,0 +1,11 @@
+# roles/backend/tasks/main.yml
+- name: Build and run the backend container
+  docker_container:
+    name: "{{ app_name }}_backend"
+    image: "{{ docker_image }}"
+    state: started
+    ports:
+      - "{{ backend_port }}:8000"  # Map the backend port
+    restart_policy: always
+    volumes:
+      - ./backend:/app  # Mount local directory to the container
