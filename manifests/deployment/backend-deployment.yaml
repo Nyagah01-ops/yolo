@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: brianbwire/brian-yolo-client:v1.0.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_URI
+          value: mongodb://mongodb:27017/
+        - name: MONGO_DB
+          value: mydatabase
+      restartPolicy: Always
+  strategy:
+    type: Recreate
