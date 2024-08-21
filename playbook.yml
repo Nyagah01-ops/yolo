@@ -6,4 +6,14 @@
     - frontend-deployment
     - setup-mongodb   
     - backend-deployment
-    
+    # Ansible/playbook.yml
+---
+- name: Provision resources with Terraform
+  terraform:
+    project_path: "{{ terraform_dir }}"
+    state: present
+
+- name: Configure server with Ansible
+  ansible:
+    playbook: "{{ ansible_dir }}/playbook.yml"
+    inventory: "{{ ansible_dir }}/inventory"
