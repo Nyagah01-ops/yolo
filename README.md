@@ -46,10 +46,42 @@ Install the docker engine here:
 
 ## The Docker images used in this application are sourced from this repository
 
-https://hub.docker.com/repositories/brianbwire
+https://hub.docker.com/repositories/nyagaah
 
-![Alt text](image.png)
+![Alt text](nyagaah/yolo_app:1.0)
 
 ## How to run the app
 Use vagrant up --provison command 
-ip4
+Ansible Playbook for [Project Name]
+Overview
+This Ansible playbook is designed to [ "configure a web server" and "deploy a database cluster"]. It uses Ansible's automation capabilities to simplify the process of setting up and managing [related infrastructure or applications].
+
+Requirements
+Ansible 2.9 or later
+Python 3.8 or later
+[List any other dependencies or requirements, e.g., specific Linux distributions or software packages]
+Inventory File
+The playbook uses an inventory file to define the hosts and groups that will be targeted by the playbook. The inventory file is located in the same directory as this README file and is named inventory.
+
+Playbook File
+The playbook file is named playbook.yml and is located in the same directory as this README file.
+
+Usage
+To run the playbook, navigate to the directory containing the playbook file and inventory file, and run the following command:
+
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+ansible-playbook -i inventory playbook.yml
+This will execute the playbook against the hosts defined in the inventory file.
+
+Variables
+The playbook uses several variables that can be customized to suit your specific needs. These variables are defined in the group_vars and host_vars directories.
+
+Roles
+The playbook uses several roles to organize the tasks and handlers. These roles are located in the roles directory.
+
+
