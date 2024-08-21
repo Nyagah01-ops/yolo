@@ -167,4 +167,47 @@ To achieve the task the following git workflow was used:
 `docker compose up`
 
 13. Created explanation.md file and modified it as the commit messages in the repo will explain.
+Overview
+This project uses Ansible to automate the deployment of a web server on a remote host. The project includes a playbook, roles, and variables files that work together to configure and deploy a web server with a sample web application.
+
+Components
+Playbook
+The playbook is the main entry point for the Ansible deployment. It defines the roles and tasks that will be executed on the remote host. The playbook file is named playbook.yml and is located in the root of the project directory.
+
+Roles
+The project includes three roles:
+
+common: This role installs common dependencies and configures the system.
+webserver: This role installs and configures the web server software.
+deploy_app: This role deploys a sample web application.
+Each role has its own directory and includes a tasks file that defines the tasks to be executed.
+
+Variables
+The project includes a group_vars directory that contains variables files for different environments (e.g., dev, stg, prod). These variables files define settings for the web server, sample web application, database, and system.
+
+How it Works
+Here's a high-level overview of how the project works:
+
+The playbook is executed on the remote host using Ansible.
+The playbook includes the common role, which installs common dependencies and configures the system.
+The playbook includes the webserver role, which installs and configures the web server software.
+The playbook includes the deploy_app role, which deploys a sample web application.
+The roles use variables from the group_vars directory to customize the deployment.
+The playbook executes the tasks defined in each role, using the variables to configure the web server and deploy the sample web application.
+Benefits
+This project provides several benefits, including:
+
+Automation: Ansible automates the deployment of the web server and sample web application, reducing the risk of human error.
+Consistency: The project ensures consistency across different environments (e.g., dev, stg, prod) by using variables files to customize the deployment.
+Flexibility: The project allows for easy customization of the deployment by modifying the variables files or adding new roles and tasks.
+Getting Started
+To get started with this project, follow these steps:
+
+Install Ansible on your local machine.
+Clone the project repository to your local machine.
+Create an inventory file that defines the remote host and its credentials.
+Run the playbook using the ansible-playbook command, specifying the inventory file and playbook file.
+Troubleshooting
+If you encounter any issues while running the playbook, you can increase the verbosity of the output by adding the -vvv flag to the command. This will provide more detailed information about the tasks and handlers being executed.
+
 
